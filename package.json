@@ -6,23 +6,28 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
-    "npm-dev": "npm run development",
-    "npm-watch": "npm run development --watch",
-    "npm-prod": "npm run production",
-    "webpack-build": "webpack --mode=production --config webpack.config.js",
-    "build": "npm run clean && npm run webpack-build",
+    "dev": "npm run clean && webpack --config webpack.config.js --mode development",
+    "build": "npm run clean && webpack --config webpack.config.js --mode production",
     "watch": "webpack --watch --progress --mode=development"
   },
   "keywords": [],
   "author": "Mehdi Rahimi <mehdirahimi@email.com>",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "perfect-scrollbar": "^1.5.0",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.1.1",
+    "mini-css-extract-plugin": "^1.0.0",
+    "node-sass": "^4.14.1",
     "rimraf": "^3.0.2",
+    "sass-loader": "^10.0.3",
+    "style-loader": "^2.0.0",
     "webpack": "^5.1.2",
     "webpack-cli": "^4.0.0"
   }
