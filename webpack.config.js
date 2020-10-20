@@ -1,18 +1,32 @@
 // Use the Node.js path module
 const path = require('path');
 
+/**
+ * This plugin extracts CSS into separate files. It creates a CSS file per JS file
+ * which contains CSS. It supports On-Demand-Loading of CSS and SourceMaps.
+ */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+/**
+ * The plugin will generate an HTML5 file for you that includes
+ * all your webpack bundles in the body using script tags
+ */
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => ({
     entry: ['./src/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
-        publicPath: 'dist/'
+        publicPath: ''
     },
     module: {
         rules: [
             {
+                /**
+                 * The order in which loaders appear in the configuration is important
+                 * [Right to Left {Bottom to Top}]
+                 */
                 test: /\.s[ac]ss$/i,
                 use: [
                     /**
@@ -53,6 +67,11 @@ module.exports = (env, argv) => ({
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].bundle.css'
+        }),
+        // Load HTML file and injects bundles
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.resolve(__dirname, './src', 'index.html')
         })
     ],
     optimization: {}
