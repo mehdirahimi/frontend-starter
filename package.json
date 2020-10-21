@@ -9,7 +9,6 @@
     "dev": "npm run clean && webpack --config webpack.config.js --mode development",
     "build": "npm run clean && webpack --config webpack.config.js --mode production",
     "watch": "webpack --watch --progress --mode development",
-    "start": "webpack-dev-server --open --mode development",
     "serve": "webpack serve --mode development"
   },
   "keywords": [],
