@@ -61,6 +61,12 @@ module.exports = (env, argv) => ({
                         use: { loader: 'file-loader', options: { name: '[name].[ext]', outputPath: 'assets/img/misc/' } }
                     }
                 ]
+            },
+            {
+                // for shipping ES5
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             }
         ]
     },
