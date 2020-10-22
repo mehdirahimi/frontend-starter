@@ -1,7 +1,7 @@
 {
   "name": "theme",
   "version": "1.0.0",
-  "description": "Iconic Admin Panel Theme",
+  "description": "Frontend Starter",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
