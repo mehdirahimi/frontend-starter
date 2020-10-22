@@ -80,5 +80,7 @@ module.exports = (env, argv) => ({
             template: path.resolve(__dirname, './src', 'index.html')
         })
     ],
-    optimization: {}
+    optimization: {
+        splitChunks: { chunks: 'all' }
+    }
 });
